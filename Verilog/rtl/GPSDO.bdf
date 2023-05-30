@@ -23,7 +23,7 @@ applicable agreement for further details.
 	(input)
 	(rect 40 136 208 152)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "CLK_SYS" (rect 5 0 55 12)(font "Arial" ))
+	(text "CLK_SYS" (rect 5 0 54 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -34,12 +34,13 @@ applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -8 136 40 152))
 )
 (pin
 	(input)
 	(rect 40 152 208 168)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "CLK_RST" (rect 5 0 54 12)(font "Arial" ))
+	(text "CLK_RST" (rect 5 0 53 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -50,6 +51,7 @@ applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -8 152 40 168))
 )
 (pin
 	(output)
@@ -66,6 +68,24 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1208 264 1256 280))
+)
+(pin
+	(output)
+	(rect 1032 456 1208 472)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "PWM_Out" (rect 90 0 139 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+	(annotation_block (location)(rect 1208 456 1256 472))
 )
 (symbol
 	(rect 296 160 504 304)
@@ -226,6 +246,55 @@ applicable agreement for further details.
 	)
 	(annotation_block (parameter)(rect 696 312 896 360))
 )
+(symbol
+	(rect 696 432 920 544)
+	(text "PWM" (rect 5 0 30 12)(font "Arial" ))
+	(text "inst1" (rect 8 96 31 108)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "Clk_Sys" (rect 0 0 42 12)(font "Arial" ))
+		(text "Clk_Sys" (rect 21 27 63 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "Clk_Rst" (rect 0 0 40 12)(font "Arial" ))
+		(text "Clk_Rst" (rect 21 43 61 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "PWM_En" (rect 0 0 44 12)(font "Arial" ))
+		(text "PWM_En" (rect 21 59 65 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "PWM_Duty[31..0]" (rect 0 0 88 12)(font "Arial" ))
+		(text "PWM_Duty[31..0]" (rect 21 75 109 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 224 32)
+		(output)
+		(text "PWM_Out" (rect 0 0 49 12)(font "Arial" ))
+		(text "PWM_Out" (rect 162 27 211 39)(font "Arial" ))
+		(line (pt 224 32)(pt 208 32))
+	)
+	(parameter
+		"pulse"
+		"65535"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 208 96))
+	)
+	(annotation_block (parameter)(rect 696 544 880 576))
+)
 (connector
 	(pt 640 192)
 	(pt 640 144)
@@ -251,10 +320,6 @@ applicable agreement for further details.
 	(pt 288 144)
 )
 (connector
-	(pt 208 144)
-	(pt 288 144)
-)
-(connector
 	(pt 288 144)
 	(pt 640 144)
 )
@@ -264,10 +329,6 @@ applicable agreement for further details.
 )
 (connector
 	(pt 280 208)
-	(pt 280 160)
-)
-(connector
-	(pt 208 160)
 	(pt 280 160)
 )
 (connector
@@ -325,5 +386,43 @@ applicable agreement for further details.
 	(pt 904 272)
 	(pt 1032 272)
 )
+(connector
+	(pt 248 144)
+	(pt 248 464)
+)
+(connector
+	(pt 232 160)
+	(pt 232 480)
+)
+(connector
+	(pt 248 464)
+	(pt 696 464)
+)
+(connector
+	(pt 232 480)
+	(pt 696 480)
+)
+(connector
+	(pt 208 144)
+	(pt 248 144)
+)
+(connector
+	(pt 248 144)
+	(pt 288 144)
+)
+(connector
+	(pt 208 160)
+	(pt 232 160)
+)
+(connector
+	(pt 232 160)
+	(pt 280 160)
+)
+(connector
+	(pt 920 464)
+	(pt 1032 464)
+)
 (junction (pt 288 144))
 (junction (pt 280 160))
+(junction (pt 248 144))
+(junction (pt 232 160))

@@ -34,7 +34,7 @@ applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -8 152 40 168))
+	(annotation_block (location)(rect -8 136 40 152))
 )
 (pin
 	(input)
@@ -51,7 +51,7 @@ applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -8 168 40 184))
+	(annotation_block (location)(rect -8 152 40 168))
 )
 (pin
 	(output)
@@ -68,7 +68,7 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1208 280 1256 296))
+	(annotation_block (location)(rect 1208 264 1256 280))
 )
 (symbol
 	(rect 696 160 912 272)
@@ -129,7 +129,7 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 200 96))
 	)
-	(annotation_block (parameter)(rect 912 112 1112 160))
+	(annotation_block (parameter)(rect 696 272 896 320))
 )
 (symbol
 	(rect 296 160 520 304)
@@ -199,7 +199,7 @@ applicable agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 208 128))
 	)
-	(annotation_block (parameter)(rect 520 128 712 160))
+	(annotation_block (parameter)(rect 296 304 488 336))
 )
 (connector
 	(pt 640 192)

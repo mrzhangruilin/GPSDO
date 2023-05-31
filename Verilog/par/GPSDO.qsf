@@ -54,11 +54,18 @@ set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 set_location_assignment PIN_88 -to CLK_RST
 set_location_assignment PIN_89 -to CLK_SYS
-set_location_assignment PIN_52 -to Output_TXD
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
-set_global_assignment -name VERILOG_FILE ../rtl/TEST.v
-set_global_assignment -name VERILOG_FILE ../rtl/uart_send_bytes.v
-set_global_assignment -name VERILOG_FILE ../rtl/uart_send.v
-set_global_assignment -name BDF_FILE ../rtl/GPSDO.bdf
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+
+set_location_assignment PIN_110 -to _1PPS_GPS
+set_location_assignment PIN_34 -to CLK_10M
+set_location_assignment PIN_144 -to PWM_OUT
+set_location_assignment PIN_42 -to _1PPS_Local
+set_location_assignment PIN_111 -to LED_Test
+set_global_assignment -name VERILOG_FILE ../rtl/uart_send.v
+set_global_assignment -name VERILOG_FILE ../rtl/CLK_DIV.v
+set_global_assignment -name VERILOG_FILE ../rtl/PWM.v
+set_global_assignment -name VERILOG_FILE ../rtl/TEST.v
+set_global_assignment -name BDF_FILE ../rtl/GPSDO.bdf
+set_location_assignment PIN_52 -to Uart_Tx
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

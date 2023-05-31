@@ -6,7 +6,7 @@ module UART_SEND(
     input       [ 7:0] Uart_din			,     //待发送数据
     output             Uart_TX_busy		,     //发送忙状态标志 
     output  reg        Uart_TXD             	//UART发送端口
-    );
+);
     
 //parameter define
 parameter  	CLK_FREQ = 50000000;             //系统时钟频率

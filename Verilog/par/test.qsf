@@ -53,11 +53,6 @@ set_location_assignment PIN_12 -to CLK_SYS
 set_location_assignment PIN_39 -to CLK_RST
 set_global_assignment -name DEVICE_FILTER_PACKAGE TQFP
 set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 5
-set_global_assignment -name VERILOG_FILE ../../../../github/GPSDO/Verilog/rtl/uart_send.v
-set_global_assignment -name VERILOG_FILE ../../../../github/GPSDO/Verilog/rtl/TEST.v
-set_global_assignment -name VERILOG_FILE ../../../../github/GPSDO/Verilog/rtl/PWM.v
-set_global_assignment -name BDF_FILE ../../../../github/GPSDO/Verilog/rtl/GPSDO.bdf
-set_global_assignment -name VERILOG_FILE ../../../../github/GPSDO/Verilog/rtl/CLK_DIV.v
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "NO HEAT SINK WITH STILL AIR"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
@@ -68,3 +63,8 @@ set_location_assignment PIN_73 -to _1PPS_Local
 set_location_assignment PIN_5 -to PWM_OUT
 set_location_assignment PIN_26 -to Uart_Tx
 set_location_assignment PIN_72 -to _1PPS
+set_global_assignment -name VERILOG_FILE ../rtl/uart_send.v
+set_global_assignment -name VERILOG_FILE ../rtl/TEST.v
+set_global_assignment -name VERILOG_FILE ../rtl/PWM.v
+set_global_assignment -name BDF_FILE ../rtl/GPSDO.bdf
+set_global_assignment -name VERILOG_FILE ../rtl/CLK_DIV.v

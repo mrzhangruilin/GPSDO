@@ -18,14 +18,14 @@
 #
 # Quartus II 64-Bit
 # Version 13.1.0 Build 162 10/23/2013 SJ Full Version
-# Date created = 10:25:42  May 30, 2023
+# Date created = 16:08:43  June 01, 2023
 #
 # -------------------------------------------------------------------------- #
 #
 # Notes:
 #
 # 1) The default values for assignments are stored in the file:
-#		GPSDO_assignment_defaults.qdf
+#		test_assignment_defaults.qdf
 #    If this file doesn't exist, see file:
 #		assignment_defaults.qdf
 #
@@ -36,36 +36,35 @@
 # -------------------------------------------------------------------------- #
 
 
-set_global_assignment -name FAMILY "Cyclone IV E"
-set_global_assignment -name DEVICE EP4CE6E22C8
+set_global_assignment -name FAMILY "MAX II"
+set_global_assignment -name DEVICE EPM240T100C5
 set_global_assignment -name TOP_LEVEL_ENTITY GPSDO
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
-set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:25:42  MAY 30, 2023"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:08:43  JUNE 01, 2023"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
-set_global_assignment -name DEVICE_FILTER_PIN_COUNT 144
-set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
-set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 100
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR "-1"
+set_global_assignment -name POWER_EXT_SUPPLY_VOLTAGE_TO_REGULATOR 3.3V
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_location_assignment PIN_12 -to CLK_SYS
+set_location_assignment PIN_39 -to CLK_RST
+set_global_assignment -name DEVICE_FILTER_PACKAGE TQFP
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 5
+set_global_assignment -name VERILOG_FILE ../../../../github/GPSDO/Verilog/rtl/uart_send.v
+set_global_assignment -name VERILOG_FILE ../../../../github/GPSDO/Verilog/rtl/TEST.v
+set_global_assignment -name VERILOG_FILE ../../../../github/GPSDO/Verilog/rtl/PWM.v
+set_global_assignment -name BDF_FILE ../../../../github/GPSDO/Verilog/rtl/GPSDO.bdf
+set_global_assignment -name VERILOG_FILE ../../../../github/GPSDO/Verilog/rtl/CLK_DIV.v
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "NO HEAT SINK WITH STILL AIR"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
-set_location_assignment PIN_88 -to CLK_RST
-set_location_assignment PIN_89 -to CLK_SYS
-set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
-set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-
-set_location_assignment PIN_110 -to _1PPS_GPS
-set_location_assignment PIN_34 -to CLK_10M
-set_location_assignment PIN_144 -to PWM_OUT
-set_location_assignment PIN_42 -to _1PPS_Local
-set_location_assignment PIN_111 -to LED_Test
-set_global_assignment -name VERILOG_FILE ../rtl/uart_send.v
-set_global_assignment -name VERILOG_FILE ../rtl/CLK_DIV.v
-set_global_assignment -name VERILOG_FILE ../rtl/PWM.v
-set_global_assignment -name VERILOG_FILE ../rtl/TEST.v
-set_global_assignment -name BDF_FILE ../rtl/GPSDO.bdf
-set_location_assignment PIN_52 -to Uart_Tx
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_location_assignment PIN_1 -to _1PPS_GPS
+set_location_assignment PIN_73 -to _1PPS_Local
+set_location_assignment PIN_5 -to PWM_OUT
+set_location_assignment PIN_26 -to Uart_Tx
+set_location_assignment PIN_72 -to _1PPS

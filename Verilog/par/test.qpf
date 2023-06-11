@@ -18,13 +18,13 @@
 #
 # Quartus II 64-Bit
 # Version 13.1.0 Build 162 10/23/2013 SJ Full Version
-# Date created = 10:25:42  May 30, 2023
+# Date created = 16:08:43  June 01, 2023
 #
 # -------------------------------------------------------------------------- #
 
 QUARTUS_VERSION = "13.1"
-DATE = "10:25:42  May 30, 2023"
+DATE = "16:08:43  June 01, 2023"
 
 # Revisions
 
-PROJECT_REVISION = "GPSDO"
+PROJECT_REVISION = "test"

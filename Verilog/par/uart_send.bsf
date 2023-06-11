@@ -67,7 +67,7 @@ applicable agreement for further details.
 	)
 	(parameter
 		"CLK_FREQ"
-		"50000000"
+		"10000000"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter

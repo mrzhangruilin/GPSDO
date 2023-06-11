@@ -40,30 +40,23 @@ applicable agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
-		(text "CLK_10M" (rect 0 0 42 12)(font "Arial" ))
-		(text "CLK_10M" (rect 21 59 63 71)(font "Arial" ))
+		(text "_1PPS_GPS" (rect 0 0 51 12)(font "Arial" ))
+		(text "_1PPS_GPS" (rect 21 59 72 71)(font "Arial" ))
 		(line (pt 0 64)(pt 16 64)(line_width 1))
 	)
 	(port
 		(pt 0 80)
 		(input)
-		(text "_1PPS_GPS" (rect 0 0 51 12)(font "Arial" ))
-		(text "_1PPS_GPS" (rect 21 75 72 87)(font "Arial" ))
+		(text "_1PPS_Local" (rect 0 0 54 12)(font "Arial" ))
+		(text "_1PPS_Local" (rect 21 75 75 87)(font "Arial" ))
 		(line (pt 0 80)(pt 16 80)(line_width 1))
 	)
 	(port
 		(pt 0 96)
 		(input)
-		(text "_1PPS_Local" (rect 0 0 54 12)(font "Arial" ))
-		(text "_1PPS_Local" (rect 21 91 75 103)(font "Arial" ))
-		(line (pt 0 96)(pt 16 96)(line_width 1))
-	)
-	(port
-		(pt 0 112)
-		(input)
 		(text "Uart_Busy" (rect 0 0 44 12)(font "Arial" ))
-		(text "Uart_Busy" (rect 21 107 65 119)(font "Arial" ))
-		(line (pt 0 112)(pt 16 112)(line_width 1))
+		(text "Uart_Busy" (rect 21 91 65 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 1))
 	)
 	(port
 		(pt 232 32)
@@ -93,23 +86,7 @@ applicable agreement for further details.
 		(text "Uart_Data[7..0]" (rect 149 75 211 87)(font "Arial" ))
 		(line (pt 232 80)(pt 216 80)(line_width 3))
 	)
-	(parameter
-		"vc_gps"
-		"32000"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"vc_local"
-		"34000"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(parameter
-		"vc_keep"
-		"33000"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
 		(rectangle (rect 16 16 216 128)(line_width 1))
 	)
-	(annotation_block (parameter)(rect 248 -64 348 16))
 )

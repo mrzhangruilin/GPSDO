@@ -74,6 +74,23 @@ GenerateClassCluster=0
 DocumentUniqueId=LXBAJIFF
 
 [Document3]
+DocumentPath=Sch\GPSDO_V2.0.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=FKFGKLVK
+
+[Document4]
 DocumentPath=Lib\MyLib.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -90,7 +107,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NYGOTGJS
 
-[Document4]
+[Document5]
 DocumentPath=Lib\MyLib.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -107,7 +124,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=BFFKCFGG
 
-[Document5]
+[Document6]
 DocumentPath=Pcb\GPSDO_V1.0.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -123,6 +140,23 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=BDYVXXGV
+
+[Document7]
+DocumentPath=Pcb\GPSDO_V2.0.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=DNGRBIVO
 
 [Configuration1]
 Name=Sources

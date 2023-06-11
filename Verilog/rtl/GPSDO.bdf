@@ -123,23 +123,6 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 1216 248 1392 264)
-	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "_1PPS" (rect 90 0 123 12)(font "Arial" ))
-	(pt 0 8)
-	(drawing
-		(line (pt 0 8)(pt 52 8))
-		(line (pt 52 4)(pt 78 4))
-		(line (pt 52 12)(pt 78 12))
-		(line (pt 52 12)(pt 52 4))
-		(line (pt 78 4)(pt 82 8))
-		(line (pt 82 8)(pt 78 12))
-		(line (pt 78 12)(pt 82 8))
-	)
-	(annotation_block (location)(rect 1392 248 1440 264))
-)
-(pin
-	(output)
 	(rect 1216 264 1392 280)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "LED_Lock" (rect 90 0 140 12)(font "Arial" ))
@@ -592,18 +575,6 @@ applicable agreement for further details.
 	(pt 1216 240)
 )
 (connector
-	(pt 1152 256)
-	(pt 1216 256)
-)
-(connector
-	(pt 1152 240)
-	(pt 1152 256)
-)
-(connector
-	(pt 1152 256)
-	(pt 1152 368)
-)
-(connector
 	(pt 856 232)
 	(pt 872 232)
 )
@@ -623,6 +594,10 @@ applicable agreement for further details.
 	(pt 1184 272)
 	(pt 1216 272)
 )
+(connector
+	(pt 1152 240)
+	(pt 1152 368)
+)
 (junction (pt 616 104))
 (junction (pt 344 120))
 (junction (pt 328 152))
@@ -631,4 +606,3 @@ applicable agreement for further details.
 (junction (pt 616 232))
 (junction (pt 608 248))
 (junction (pt 576 280))
-(junction (pt 1152 256))

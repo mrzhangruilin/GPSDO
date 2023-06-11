@@ -25,32 +25,32 @@ always @(posedge CLK_SYS or negedge CLK_RST)
 begin
     if(!CLK_RST) begin
       	Uart_En <= 1'b0;
-		PWM_Duty <= 32768;
+		PWM_Duty <= 33300;
 		Uart_Data <= 8'd13;
 		LED_Lock <= 1'b1;
 	end
     else begin
         if((flag_cnt_start == 1'b1) && (flag_cnt_stop == 1'b1)) begin
-			if ((flag_order == 1'b0)&&(cnt_phase > 5)) begin		//GPS超前，增大电压
+			if ((flag_order == 1'b0)&&(cnt_phase > 2)) begin		//GPS超前，增大电压
 				Uart_Data <= cnt_phase;
 				PWM_Duty <= 45000;		//gps超前电压
 				LED_Lock <= 1'b1;
 			end
-			else if ((flag_order == 1'b1)&&(cnt_phase > 5)) begin	//Local超前，减小电压
-				Uart_Data <= 8'd255-cnt_phase;
+			else if ((flag_order == 1'b1)&&(cnt_phase > 2)) begin	//Local超前，减小电压
+				Uart_Data <= (8'd255-cnt_phase);
 				PWM_Duty <= 20000;		//local超前电压
 				LED_Lock <= 1'b1;
 			end
 			else begin
-				Uart_Data <= 8'd0;
-				PWM_Duty <= 32768;		//保持电压
+				Uart_Data <= cnt_phase;
+				PWM_Duty <= 33300;	//保持电压
 				LED_Lock <= 1'b0;
 			end
 			Uart_En <= 1'b1;
 		end
-        else if(cnt_phase > 50000000)begin	
-			PWM_Duty <= 33800;
-			Uart_Data <= 8'd255;
+        else if(cnt_phase > 32'd5000000)begin	
+			PWM_Duty <= 33300;
+			Uart_Data <= 8'd0;
         	Uart_En <= 1'b1;
 			LED_Lock <= 1'b1;
 		end
@@ -110,7 +110,12 @@ always @(posedge CLK_SYS or negedge CLK_RST) begin
 		cnt_phase <= 32'd0;													//两个寄存器全部清零
 	end
 	else if((flag_cnt_start == 1'b1) && (flag_cnt_stop == 1'b0)) begin		//仅有开始计数标志
-		cnt_phase <= cnt_phase + 1'b1;										//缓冲寄存器自加
+		if (cnt_phase < 32'd10000000) begin
+			cnt_phase <= cnt_phase + 1'b1;										//缓冲寄存器自加
+		end
+		else begin
+			cnt_phase <= 32'd0;
+		end
 	end
 	else if((flag_cnt_start == 1'b1) && (flag_cnt_stop == 1'b1)) begin		//停止计数时刻，将相位差丢给串口
 	end														

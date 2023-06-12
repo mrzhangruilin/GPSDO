@@ -61,10 +61,8 @@ set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_
 set_location_assignment PIN_1 -to _1PPS_GPS
 set_location_assignment PIN_72 -to _1PPS_Local
 set_location_assignment PIN_5 -to PWM_OUT
-set_location_assignment PIN_26 -to Uart_Tx
-set_global_assignment -name VERILOG_FILE ../rtl/uart_send.v
+set_location_assignment PIN_54 -to LED_Lock
 set_global_assignment -name VERILOG_FILE ../rtl/TEST.v
 set_global_assignment -name VERILOG_FILE ../rtl/PWM.v
 set_global_assignment -name BDF_FILE ../rtl/GPSDO.bdf
 set_global_assignment -name VERILOG_FILE ../rtl/CLK_DIV.v
-set_location_assignment PIN_54 -to LED_Lock

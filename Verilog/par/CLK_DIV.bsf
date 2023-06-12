@@ -20,7 +20,7 @@ applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 224 128)
+	(rect 16 16 232 128)
 	(text "CLK_DIV" (rect 5 0 48 12)(font "Arial" ))
 	(text "inst" (rect 8 96 20 108)(font "Arial" ))
 	(port
@@ -45,11 +45,18 @@ applicable agreement for further details.
 		(line (pt 0 64)(pt 16 64)(line_width 1))
 	)
 	(port
-		(pt 208 32)
+		(pt 0 80)
+		(input)
+		(text "DIV_RESET" (rect 0 0 57 12)(font "Arial" ))
+		(text "DIV_RESET" (rect 21 75 78 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 216 32)
 		(output)
 		(text "_1PPS_Local" (rect 0 0 54 12)(font "Arial" ))
-		(text "_1PPS_Local" (rect 133 27 187 39)(font "Arial" ))
-		(line (pt 208 32)(pt 192 32)(line_width 1))
+		(text "_1PPS_Local" (rect 141 27 195 39)(font "Arial" ))
+		(line (pt 216 32)(pt 200 32)(line_width 1))
 	)
 	(parameter
 		"pulse"
@@ -57,7 +64,7 @@ applicable agreement for further details.
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 192 96)(line_width 1))
+		(rectangle (rect 16 16 200 96)(line_width 1))
 	)
-	(annotation_block (parameter)(rect 224 -64 324 16))
+	(annotation_block (parameter)(rect 232 -64 332 16))
 )

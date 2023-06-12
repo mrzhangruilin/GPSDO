@@ -6,10 +6,7 @@ module TEST (
 	
 	output	reg			LED_Lock,		//锁定用灯
 	output	reg	[31:0]	PWM_Duty,
-
-	input				Uart_Busy,
-	output	reg			Uart_En,
-	output	reg	[7:0]	Uart_Data
+	output	reg			DIV_RESET		//置1时，重新计数
 );
 
 
@@ -20,42 +17,59 @@ reg			flag_cnt_start;		//开始计数标志位
 reg			flag_cnt_stop;		//停止计数标志位
 reg [31:0]	cnt_phase;			//相位差计数
 
-//串口发送相位差，控制PWM
+//控制PWM
+/*
+	输出0V电压时，相位差变化0.7us每秒，0.7us/s
+	输出5V电压时，相位差变化0.5us每秒，0.5us/s
+	PWM_Duty	△
+	1			0.7us/s
+	0(最大)		0.5us/s
+*/
 always @(posedge CLK_SYS or negedge CLK_RST)
 begin
     if(!CLK_RST) begin
-      	Uart_En <= 1'b0;
-		PWM_Duty <= 33300;
-		Uart_Data <= 8'd13;
+		PWM_Duty <= 32'd32768;
 		LED_Lock <= 1'b1;
+		DIV_RESET <= 1'b0;
 	end
     else begin
-        if((flag_cnt_start == 1'b1) && (flag_cnt_stop == 1'b1)) begin
-			if ((flag_order == 1'b0)&&(cnt_phase > 2)) begin		//GPS超前，增大电压
-				Uart_Data <= cnt_phase;
-				PWM_Duty <= 45000;		//gps超前电压
-				LED_Lock <= 1'b1;
+        if((flag_cnt_start == 1'b1) && (flag_cnt_stop == 1'b1)) begin	//测完相位差
+			if (flag_order == 1'b0) begin			//GPS超前，增大电压
+				if (cnt_phase > 32'd10) begin		//相位差过大，重新计数
+					DIV_RESET <= 1'b1;
+				end 
+				else if (cnt_phase > 2) begin		
+					PWM_Duty <= 32'd45000;
+					LED_Lock <= 1'b1;
+				end
+				else begin
+					PWM_Duty <= 32'd32768;
+					LED_Lock <= 1'b0;
+				end
 			end
-			else if ((flag_order == 1'b1)&&(cnt_phase > 2)) begin	//Local超前，减小电压
-				Uart_Data <= (8'd255-cnt_phase);
-				PWM_Duty <= 20000;		//local超前电压
+			else begin	//Local超前，减小电压
+				if (cnt_phase > 32'd5) begin		//相位差过大，重新计数
+					DIV_RESET <= 1'b1;
+				end 
+				else if (cnt_phase > 2) begin		
+					PWM_Duty <= 32'd25000;
+					LED_Lock <= 1'b1;
+				end
+				else begin
+					PWM_Duty <= 32'd32768;
+					LED_Lock <= 1'b0;
+				end
+			end
+		end
+        else begin
+			DIV_RESET <= 1'b0;							//没有测完相位差
+			if(cnt_phase > 32'd5000000) begin			//相位差过大，0.5s，GPS信号丢失
+				PWM_Duty <= 32'd32768;
 				LED_Lock <= 1'b1;
 			end
 			else begin
-				Uart_Data <= cnt_phase;
-				PWM_Duty <= 33300;	//保持电压
-				LED_Lock <= 1'b0;
+				
 			end
-			Uart_En <= 1'b1;
-		end
-        else if(cnt_phase > 32'd5000000)begin	
-			PWM_Duty <= 33300;
-			Uart_Data <= 8'd0;
-        	Uart_En <= 1'b1;
-			LED_Lock <= 1'b1;
-		end
-		else begin
-			Uart_En <= 1'b0;
 		end
     end
 end
@@ -111,7 +125,7 @@ always @(posedge CLK_SYS or negedge CLK_RST) begin
 	end
 	else if((flag_cnt_start == 1'b1) && (flag_cnt_stop == 1'b0)) begin		//仅有开始计数标志
 		if (cnt_phase < 32'd10000000) begin
-			cnt_phase <= cnt_phase + 1'b1;										//缓冲寄存器自加
+			cnt_phase <= cnt_phase + 1'b1;									//计数器增加
 		end
 		else begin
 			cnt_phase <= 32'd0;

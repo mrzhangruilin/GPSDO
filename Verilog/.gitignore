@@ -5,3 +5,5 @@
 !*.qpf
 !*.qsf
 !*.bsf
+!*.gitignore
+!*.code-workspace

@@ -1,11 +1,11 @@
 module CLK_Div(
-    input   CLK_Sys,    			//系统10M时钟
-    input   CLK_Rst,    			//复位信号
+    input   		CLK_Sys,    			//系统10M时钟
+    input   		CLK_Rst,    			//复位信号
 
-	input	Phase_Compensate_Type,	//补偿方式，0是增加计数，1是减少计数
-	input	Phase_Compensate,		//相位补偿，用一个24位带符号的数输入
-    input   _1PPS_GPS,  			//输入GPS的1pps
-    output	reg	_1PPS_Local			//输出本地的1pps
+	input			Phase_Compensate_Type,	//补偿方式，0是增加计数，1是减少计数
+	input	[11:0]	Phase_Compensate,		//相位补偿，用一个12位带符号的数输入
+    input   		_1PPS_GPS,  			//输入GPS的1pps
+    output	reg		_1PPS_Local				//输出本地的1pps
 );
 
 reg 		flag_gps_first;		//第一个gps的1pps标志位

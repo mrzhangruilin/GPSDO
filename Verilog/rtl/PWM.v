@@ -1,12 +1,12 @@
 module PWM (
-	input			CLK_SYS,
-	input			CLK_RST,
+	input					CLK_SYS,
+	input					CLK_RST,
 
-	input	[15:0]	PWM_Duty,		//脉宽
-	output	reg		PWM_Out
+	input			[15:0]	PWM_Duty,		//脉宽
+	output	reg				PWM_Out
 );
 
-parameter pulse = 65535;	//脉冲周期
+parameter pulse = 65535;			//脉冲周期
 reg [15:0]	cnt_pulse;		//脉冲周期计数
 
 always @(posedge CLK_SYS or negedge CLK_RST) begin

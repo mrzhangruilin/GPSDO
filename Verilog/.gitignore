@@ -1,6 +1,7 @@
 *
 !*/
 !*.v
-!*.gitignore
-!*.code-workspace
-
+!*.bdf
+!*.qbf
+!*.qsf
+!*.bsf

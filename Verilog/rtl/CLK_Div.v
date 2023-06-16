@@ -1,66 +1,65 @@
-module CLK_Div(
-    input   		CLK_Sys,    			//系统10M时钟
-    input   		CLK_Rst,    			//复位信号
+module CLK_DIV (
+    input   				CLK_SYS,		
+	input					CLK_RST,
+    input   				_1PPS_GPS,
 
-	input			Phase_Compensate_Type,	//补偿方式，0是增加计数，1是减少计数
-	input	[11:0]	Phase_Compensate,		//相位补偿，用一个12位带符号的数输入
-    input   		_1PPS_GPS,  			//输入GPS的1pps
-    output	reg		_1PPS_Local				//输出本地的1pps
+	input	signed [24:0] 	compensate,		
+    output  reg				_1PPS_Local
 );
+    
 
-reg 		flag_gps_first;		//第一个gps的1pps标志位
-reg	[23:0]	cnt_10M;			//计数到10M
+parameter	period 	= 10_000_000;
+parameter	pulse	= 1_000_000;
 
-//检测第一个GPS信号
-always @(posedge _1PPS_GPS or negedge CLK_Rst) begin
-	if (!CLK_Rst) begin
-		flag_gps_first <= 1'b0;
+reg signed	[24:0]	cnt_period;		    
+reg         		flag_start;         
+
+/* 等待GPS信号到来 */
+always @(posedge CLK_SYS or negedge CLK_RST) begin
+    if (!CLK_RST) begin
+        flag_start <= 1'b0;
+    end
+    else if (_1PPS_GPS==1'b1) begin
+		flag_start <= 1'b1;
 	end
 	else begin
-		flag_gps_first <= 1'b1;
+		flag_start <= flag_start;
 	end
 end
 
-//计数
-always @(posedge CLK_Sys or negedge CLK_Rst) begin
-	if (!CLK_Rst) begin
-		cnt_10M <= 24'd0;
+/* 分频计数 */
+always @(posedge CLK_SYS or negedge CLK_RST) begin
+	if (!CLK_RST) begin
+		cnt_period <= 25'd0;		
 	end
-	else if (flag_gps_first) begin
-		if (Phase_Compensate_Type) begin
-			if (cnt_10M < 10_000_000-1'b1-Phase_Compensate) begin	//减少补偿量
-				cnt_10M <= cnt_10M + 1'b1;
-			end
-			else begin
-				cnt_10M <= 21'd0;
-			end
+	else if (flag_start == 1'b1) begin
+      	if (cnt_period == period + compensate - 1'b1) begin
+			cnt_period <= 25'd0;
 		end
 		else begin
-			if (cnt_10M < 10_000_000-1'b1+Phase_Compensate) begin	//增加补偿量
-				cnt_10M <= cnt_10M + 1'b1;
-			end
-			else begin
-				cnt_10M <= 21'd0;
-			end
+			cnt_period <= cnt_period + 1'b1;
 		end
-	end
-	else begin
-		cnt_10M <= 24'd0;
-	end
+   end
+   else begin
+		cnt_period <= 25'd0;
+   end
+
 end
 
-//输出本地1pps
-always @(posedge CLK_Sys or negedge CLK_Rst) begin
-	if (!CLK_Rst) begin
+/* 输出本地1PPS */
+always @(posedge CLK_SYS or negedge CLK_RST) begin
+	if (!CLK_RST) begin
+		_1PPS_Local <= 1'b0;		
+	end
+	else if (cnt_period == pulse - 1'b1) begin
 		_1PPS_Local <= 1'b0;
 	end
+	else if (cnt_period == period + compensate - 1'b1) begin
+		_1PPS_Local <= 1'b1;
+	end
 	else begin
-		if (cnt_10M < 1_000_000) begin
-			_1PPS_Local <= 1'b1;
-		end
-		else begin
-			_1PPS_Local <= 1'b0;
-		end
+		_1PPS_Local <= _1PPS_Local;
 	end
 end
+
 endmodule

@@ -40,8 +40,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
-		(text "PWM_Duty[15..0]" (rect 0 0 74 12)(font "Arial" ))
-		(text "PWM_Duty[15..0]" (rect 21 59 95 71)(font "Arial" ))
+		(text "PWM_Duty[16..0]" (rect 0 0 74 12)(font "Arial" ))
+		(text "PWM_Duty[16..0]" (rect 21 59 95 71)(font "Arial" ))
 		(line (pt 0 64)(pt 16 64)(line_width 3))
 	)
 	(port

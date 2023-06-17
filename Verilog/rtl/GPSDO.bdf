@@ -23,7 +23,7 @@ applicable agreement for further details.
 	(input)
 	(rect 128 152 296 168)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "CLK_SYS" (rect 5 0 55 12)(font "Arial" ))
+	(text "CLK_SYS" (rect 5 0 54 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -40,7 +40,7 @@ applicable agreement for further details.
 	(input)
 	(rect 128 168 296 184)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "CLK_RST" (rect 5 0 54 12)(font "Arial" ))
+	(text "CLK_RST" (rect 5 0 53 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -57,7 +57,7 @@ applicable agreement for further details.
 	(input)
 	(rect 128 184 296 200)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "_1PPS_GPS" (rect 5 0 67 12)(font "Arial" ))
+	(text "_1PPS_GPS" (rect 5 0 66 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -119,11 +119,11 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1584 400 1632 416))
+	(annotation_block (location)(rect 1584 384 1632 400))
 )
 (pin
 	(output)
-	(rect 1096 360 1272 376)
+	(rect 1088 544 1264 560)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "_40K" (rect 90 0 114 12)(font "Arial" ))
 	(pt 0 8)
@@ -136,7 +136,24 @@ applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1272 360 1320 376))
+	(annotation_block (location)(rect 1264 544 1312 560))
+)
+(pin
+	(output)
+	(rect 1336 416 1512 432)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "Uart_Tx" (rect 90 0 128 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+	(annotation_block (location)(rect 1512 432 1560 448))
 )
 (symbol
 	(rect 384 200 616 312)
@@ -193,101 +210,9 @@ applicable agreement for further details.
 	(annotation_block (parameter)(rect 384 312 584 360))
 )
 (symbol
-	(rect 1456 200 1680 312)
-	(text "PWM" (rect 5 0 30 12)(font "Arial" ))
-	(text "inst6" (rect 8 96 31 108)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "CLK_SYS" (rect 0 0 49 12)(font "Arial" ))
-		(text "CLK_SYS" (rect 21 27 70 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "CLK_RST" (rect 0 0 48 12)(font "Arial" ))
-		(text "CLK_RST" (rect 21 43 69 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "PWM_Duty[15..0]" (rect 0 0 88 12)(font "Arial" ))
-		(text "PWM_Duty[15..0]" (rect 21 59 109 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
-	)
-	(port
-		(pt 224 32)
-		(output)
-		(text "PWM_Out" (rect 0 0 49 12)(font "Arial" ))
-		(text "PWM_Out" (rect 162 27 211 39)(font "Arial" ))
-		(line (pt 224 32)(pt 208 32))
-	)
-	(parameter
-		"pulse"
-		"65535"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 16 208 96))
-	)
-	(annotation_block (parameter)(rect 1456 312 1640 344))
-)
-(symbol
-	(rect 1088 200 1352 312)
-	(text "PID" (rect 5 0 23 12)(font "Arial" ))
-	(text "inst11" (rect 8 96 37 108)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "CLK_SYS" (rect 0 0 49 12)(font "Arial" ))
-		(text "CLK_SYS" (rect 21 27 70 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "CLK_RST" (rect 0 0 48 12)(font "Arial" ))
-		(text "CLK_RST" (rect 21 43 69 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "Measure_Phase[23..0]" (rect 0 0 109 12)(font "Arial" ))
-		(text "Measure_Phase[23..0]" (rect 21 59 130 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "Measure_Done" (rect 0 0 73 12)(font "Arial" ))
-		(text "Measure_Done" (rect 21 75 94 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80))
-	)
-	(port
-		(pt 264 32)
-		(output)
-		(text "Led_Lock" (rect 0 0 47 12)(font "Arial" ))
-		(text "Led_Lock" (rect 204 27 251 39)(font "Arial" ))
-		(line (pt 264 32)(pt 248 32))
-	)
-	(port
-		(pt 264 48)
-		(output)
-		(text "PWM_Duty[15..0]" (rect 0 0 88 12)(font "Arial" ))
-		(text "PWM_Duty[15..0]" (rect 169 43 257 55)(font "Arial" ))
-		(line (pt 264 48)(pt 248 48)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 248 96))
-	)
-)
-(symbol
-	(rect 680 200 928 312)
+	(rect 680 192 928 304)
 	(text "Measure" (rect 5 0 46 12)(font "Arial" ))
-	(text "inst13" (rect 8 96 37 108)(font "Arial" ))
+	(text "inst4" (rect 8 96 31 108)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -348,6 +273,199 @@ applicable agreement for further details.
 		(rectangle (rect 16 16 232 96))
 	)
 )
+(symbol
+	(rect 1080 376 1296 488)
+	(text "UART_SEND" (rect 5 0 71 12)(font "Arial" ))
+	(text "inst7" (rect 8 96 31 108)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "CLK_SYS" (rect 0 0 49 12)(font "Arial" ))
+		(text "CLK_SYS" (rect 21 27 70 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "CLK_RST" (rect 0 0 48 12)(font "Arial" ))
+		(text "CLK_RST" (rect 21 43 69 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "Uart_TX_EN" (rect 0 0 60 12)(font "Arial" ))
+		(text "Uart_TX_EN" (rect 21 59 81 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "Uart_din[7..0]" (rect 0 0 67 12)(font "Arial" ))
+		(text "Uart_din[7..0]" (rect 21 75 88 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 216 32)
+		(output)
+		(text "Uart_TX_busy" (rect 0 0 69 12)(font "Arial" ))
+		(text "Uart_TX_busy" (rect 137 27 206 39)(font "Arial" ))
+		(line (pt 216 32)(pt 200 32))
+	)
+	(port
+		(pt 216 48)
+		(output)
+		(text "Uart_TXD" (rect 0 0 47 12)(font "Arial" ))
+		(text "Uart_TXD" (rect 156 43 203 55)(font "Arial" ))
+		(line (pt 216 48)(pt 200 48))
+	)
+	(parameter
+		"CLK_FREQ"
+		"10000000"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"UART_BPS"
+		"9600"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 200 96))
+	)
+	(annotation_block (parameter)(rect 1080 488 1280 536))
+)
+(symbol
+	(rect 1456 200 1680 312)
+	(text "PWM" (rect 5 0 30 12)(font "Arial" ))
+	(text "inst10" (rect 8 96 37 108)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "CLK_SYS" (rect 0 0 49 12)(font "Arial" ))
+		(text "CLK_SYS" (rect 21 27 70 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "CLK_RST" (rect 0 0 48 12)(font "Arial" ))
+		(text "CLK_RST" (rect 21 43 69 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "PWM_Duty[16..0]" (rect 0 0 88 12)(font "Arial" ))
+		(text "PWM_Duty[16..0]" (rect 21 59 109 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 224 32)
+		(output)
+		(text "PWM_Out" (rect 0 0 49 12)(font "Arial" ))
+		(text "PWM_Out" (rect 162 27 211 39)(font "Arial" ))
+		(line (pt 224 32)(pt 208 32))
+	)
+	(parameter
+		"pulse"
+		"65535"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 208 96))
+	)
+	(annotation_block (parameter)(rect 1456 168 1640 200))
+)
+(symbol
+	(rect 1080 200 1344 312)
+	(text "PID" (rect 5 0 23 12)(font "Arial" ))
+	(text "inst9" (rect 8 96 31 108)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "CLK_SYS" (rect 0 0 49 12)(font "Arial" ))
+		(text "CLK_SYS" (rect 21 27 70 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "CLK_RST" (rect 0 0 48 12)(font "Arial" ))
+		(text "CLK_RST" (rect 21 43 69 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "Measure_Phase[23..0]" (rect 0 0 109 12)(font "Arial" ))
+		(text "Measure_Phase[23..0]" (rect 21 59 130 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "Measure_Done" (rect 0 0 73 12)(font "Arial" ))
+		(text "Measure_Done" (rect 21 75 94 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 264 32)
+		(output)
+		(text "Led_Lock" (rect 0 0 47 12)(font "Arial" ))
+		(text "Led_Lock" (rect 204 27 251 39)(font "Arial" ))
+		(line (pt 264 32)(pt 248 32))
+	)
+	(port
+		(pt 264 48)
+		(output)
+		(text "PWM_Duty[16..0]" (rect 0 0 88 12)(font "Arial" ))
+		(text "PWM_Duty[16..0]" (rect 169 43 257 55)(font "Arial" ))
+		(line (pt 264 48)(pt 248 48)(line_width 3))
+	)
+	(port
+		(pt 264 64)
+		(output)
+		(text "Data[7..0]" (rect 0 0 49 12)(font "Arial" ))
+		(text "Data[7..0]" (rect 202 59 251 71)(font "Arial" ))
+		(line (pt 264 64)(pt 248 64)(line_width 3))
+	)
+	(port
+		(pt 264 80)
+		(output)
+		(text "Uart_En" (rect 0 0 40 12)(font "Arial" ))
+		(text "Uart_En" (rect 210 75 250 87)(font "Arial" ))
+		(line (pt 264 80)(pt 248 80))
+	)
+	(parameter
+		"target"
+		"1"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"kp"
+		"500"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"ki"
+		"50"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(parameter
+		"kd"
+		"0000000000000000"
+		""
+		(type "PARAMETER_SIGNED_BIN")	)
+	(parameter
+		"PWM_Duty_Half"
+		"32768"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 248 96))
+	)
+	(annotation_block (parameter)(rect 1080 112 1352 196))
+)
 (connector
 	(pt 376 160)
 	(pt 376 232)
@@ -397,8 +515,205 @@ applicable agreement for further details.
 	(pt 688 360)
 )
 (connector
-	(pt 1456 248)
+	(pt 1408 392)
+	(pt 1400 392)
+)
+(connector
+	(pt 1400 392)
+	(pt 1400 232)
+)
+(connector
+	(pt 1344 232)
+	(pt 1400 232)
+)
+(connector
+	(pt 1344 248)
+	(pt 1416 248)
+	(bus)
+)
+(connector
+	(pt 680 160)
+	(pt 680 224)
+)
+(connector
+	(pt 664 240)
+	(pt 680 240)
+)
+(connector
+	(pt 664 176)
+	(pt 664 240)
+)
+(connector
+	(pt 648 192)
+	(pt 648 256)
+)
+(connector
+	(pt 648 256)
+	(pt 680 256)
+)
+(connector
+	(pt 632 272)
+	(pt 680 272)
+)
+(connector
+	(pt 376 160)
+	(pt 680 160)
+)
+(connector
+	(pt 360 176)
+	(pt 664 176)
+)
+(connector
+	(pt 632 232)
+	(pt 632 272)
+)
+(connector
+	(pt 632 272)
+	(pt 632 360)
+)
+(connector
+	(pt 680 160)
+	(pt 1072 160)
+)
+(connector
+	(pt 1072 160)
+	(pt 1448 160)
+)
+(connector
+	(pt 1072 160)
+	(pt 1072 232)
+)
+(connector
+	(pt 664 176)
+	(pt 1056 176)
+)
+(connector
+	(pt 1056 176)
+	(pt 1432 176)
+)
+(connector
+	(pt 928 240)
+	(pt 1024 240)
+)
+(connector
+	(pt 1080 264)
+	(pt 1040 264)
+	(bus)
+)
+(connector
+	(pt 928 224)
+	(pt 1040 224)
+	(bus)
+)
+(connector
+	(pt 1040 264)
+	(pt 1040 224)
+	(bus)
+)
+(connector
+	(pt 1056 176)
+	(pt 1056 248)
+)
+(connector
+	(pt 1024 240)
+	(pt 1024 280)
+)
+(connector
+	(pt 1296 424)
+	(pt 1336 424)
+)
+(connector
+	(pt 1080 408)
+	(pt 1064 408)
+)
+(connector
+	(pt 1016 280)
+	(pt 1016 552)
+)
+(connector
+	(pt 1048 248)
+	(pt 1048 424)
+)
+(connector
+	(pt 1064 232)
+	(pt 1064 408)
+)
+(connector
+	(pt 1080 424)
+	(pt 1048 424)
+)
+(connector
+	(pt 1016 552)
+	(pt 1088 552)
+)
+(connector
+	(pt 1016 280)
+	(pt 1024 280)
+)
+(connector
+	(pt 1024 280)
+	(pt 1080 280)
+)
+(connector
+	(pt 1048 248)
+	(pt 1056 248)
+)
+(connector
+	(pt 1056 248)
+	(pt 1080 248)
+)
+(connector
+	(pt 1064 232)
+	(pt 1072 232)
+)
+(connector
+	(pt 1072 232)
+	(pt 1080 232)
+)
+(connector
+	(pt 1344 512)
+	(pt 1344 280)
+)
+(connector
+	(pt 1344 512)
+	(pt 1048 512)
+)
+(connector
+	(pt 1080 440)
+	(pt 1048 440)
+)
+(connector
+	(pt 1048 440)
+	(pt 1048 512)
+)
+(connector
+	(pt 1080 456)
+	(pt 1056 456)
+	(bus)
+)
+(connector
+	(pt 1056 456)
+	(pt 1056 536)
+	(bus)
+)
+(connector
+	(pt 1368 536)
+	(pt 1056 536)
+	(bus)
+)
+(connector
+	(pt 1368 536)
+	(pt 1368 264)
+	(bus)
+)
+(connector
+	(pt 1368 264)
+	(pt 1344 264)
+	(bus)
+)
+(connector
 	(pt 1432 248)
+	(pt 1456 248)
 )
 (connector
 	(pt 1432 176)
@@ -418,135 +733,22 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 1680 232)
 	(pt 1712 232)
-)
-(connector
-	(pt 1088 232)
-	(pt 1080 232)
-)
-(connector
-	(pt 1080 232)
-	(pt 1080 160)
-)
-(connector
-	(pt 1080 160)
-	(pt 1448 160)
-)
-(connector
-	(pt 1088 248)
-	(pt 1064 248)
-)
-(connector
-	(pt 1064 248)
-	(pt 1064 176)
-)
-(connector
-	(pt 1064 176)
-	(pt 1432 176)
-)
-(connector
-	(pt 1088 264)
-	(pt 1048 264)
-	(bus)
-)
-(connector
-	(pt 1088 280)
-	(pt 1032 280)
-)
-(connector
-	(pt 1352 248)
-	(pt 1416 248)
-	(bus)
+	(pt 1680 232)
 )
 (connector
 	(pt 1416 248)
 	(pt 1416 264)
 	(bus)
 )
-(connector
-	(pt 1352 232)
-	(pt 1400 232)
-)
-(connector
-	(pt 1400 232)
-	(pt 1400 392)
-)
-(connector
-	(pt 1408 392)
-	(pt 1400 392)
-)
-(connector
-	(pt 680 160)
-	(pt 680 232)
-)
-(connector
-	(pt 664 248)
-	(pt 680 248)
-)
-(connector
-	(pt 664 176)
-	(pt 664 248)
-)
-(connector
-	(pt 648 192)
-	(pt 648 264)
-)
-(connector
-	(pt 648 264)
-	(pt 680 264)
-)
-(connector
-	(pt 632 280)
-	(pt 680 280)
-)
-(connector
-	(pt 1048 264)
-	(pt 1048 232)
-	(bus)
-)
-(connector
-	(pt 376 160)
-	(pt 680 160)
-)
-(connector
-	(pt 680 160)
-	(pt 1080 160)
-)
-(connector
-	(pt 360 176)
-	(pt 664 176)
-)
-(connector
-	(pt 664 176)
-	(pt 1064 176)
-)
-(connector
-	(pt 632 232)
-	(pt 632 280)
-)
-(connector
-	(pt 632 280)
-	(pt 632 360)
-)
-(connector
-	(pt 928 232)
-	(pt 1048 232)
-	(bus)
-)
-(connector
-	(pt 928 248)
-	(pt 1032 248)
-)
-(connector
-	(pt 1032 248)
-	(pt 1032 280)
-)
 (junction (pt 376 160))
 (junction (pt 360 176))
 (junction (pt 680 160))
 (junction (pt 664 176))
 (junction (pt 344 192))
-(junction (pt 632 280))
-(junction (pt 1080 160))
-(junction (pt 1064 176))
+(junction (pt 632 272))
+(junction (pt 1072 160))
+(junction (pt 1072 232))
+(junction (pt 1056 176))
+(junction (pt 1024 280))
+(junction (pt 1056 248))

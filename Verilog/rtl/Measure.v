@@ -5,10 +5,10 @@ module Measure(
 	input					_1PPS_Local,
 
 	
-	output	reg	[23:0]		Measure_Phase,	//测完的相位差
-	output					Measure_Done,	//测量完成标志位
-	output					flag_GPS_posedge,
-	output					flag_Local_posedge
+	output	reg		[23:0]			Measure_Phase,	//测完的相位差
+	output							Measure_Done,	//测量完成标志位
+	output							flag_GPS_posedge,
+	output							flag_Local_posedge
 );
 
 reg _1PPS_GPS_e0;

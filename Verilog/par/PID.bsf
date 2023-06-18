@@ -20,9 +20,9 @@ applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 280 128)
+	(rect 16 16 280 160)
 	(text "PID" (rect 5 0 20 12)(font "Arial" ))
-	(text "inst" (rect 8 96 20 108)(font "Arial" ))
+	(text "inst" (rect 8 128 20 140)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -79,14 +79,21 @@ applicable agreement for further details.
 		(text "Uart_En" (rect 208 75 243 87)(font "Arial" ))
 		(line (pt 264 80)(pt 248 80)(line_width 1))
 	)
+	(port
+		(pt 264 96)
+		(output)
+		(text "compensate[24..0]" (rect 0 0 74 12)(font "Arial" ))
+		(text "compensate[24..0]" (rect 169 91 243 103)(font "Arial" ))
+		(line (pt 264 96)(pt 248 96)(line_width 3))
+	)
 	(parameter
 		"kp"
-		"0000010111011100"
+		"0000001111101000"
 		""
 		(type "PARAMETER_SIGNED_BIN")	)
 	(parameter
 		"ki"
-		"0000000000110010"
+		"0000000000001010"
 		""
 		(type "PARAMETER_SIGNED_BIN")	)
 	(parameter
@@ -100,7 +107,7 @@ applicable agreement for further details.
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
-		(rectangle (rect 16 16 248 96)(line_width 1))
+		(rectangle (rect 16 16 248 128)(line_width 1))
 	)
 	(annotation_block (parameter)(rect 280 -64 380 16))
 )

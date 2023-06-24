@@ -75,8 +75,8 @@ applicable agreement for further details.
 	(port
 		(pt 248 80)
 		(output)
-		(text "flag_Local_posedge" (rect 0 0 80 12)(font "Arial" ))
-		(text "flag_Local_posedge" (rect 147 75 227 87)(font "Arial" ))
+		(text "flag_Local_negedge" (rect 0 0 80 12)(font "Arial" ))
+		(text "flag_Local_negedge" (rect 147 75 227 87)(font "Arial" ))
 		(line (pt 248 80)(pt 232 80)(line_width 1))
 	)
 	(drawing

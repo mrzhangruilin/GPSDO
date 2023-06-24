@@ -88,19 +88,19 @@ applicable agreement for further details.
 	)
 	(parameter
 		"kp"
-		"0000001111101000"
+		"1000"
 		""
-		(type "PARAMETER_SIGNED_BIN")	)
+		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"ki"
-		"0000000000001010"
+		"10"
 		""
-		(type "PARAMETER_SIGNED_BIN")	)
+		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"kd"
-		"0000000000000000"
+		"0"
 		""
-		(type "PARAMETER_SIGNED_BIN")	)
+		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
 		"PWM_Duty_Half"
 		"32768"

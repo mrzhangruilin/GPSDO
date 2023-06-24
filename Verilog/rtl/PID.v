@@ -13,9 +13,9 @@ module PID (
 );
 
 
-parameter signed 	kp = 16'd1000;
-parameter signed 	ki = 16'd10;
-parameter signed 	kd = 16'd0;
+parameter signed 	kp = 500;
+parameter signed 	ki = 10;
+parameter signed 	kd = 0;
 parameter signed	PWM_Duty_Half = 32768;
 
 reg signed	[15:0]	en;				//偏差量，偏差量=Phase-Target
@@ -28,29 +28,37 @@ assign Uart_En = Measure_Done;
 always @(posedge Measure_Done or negedge CLK_RST) begin
 	if (!CLK_RST) begin
 		en <= 0;
-		en_1 <= 0;
+		//en_1 <= 0;
 		integral_en <= 0;
 		un <= 0;
 		Led_Lock <= 1'b1;
-	end
+		Data <= 0;
+	end 
 	else begin
-		en = $signed(Measure_Phase[15:0]);
-		Data <= integral_en;						//串口发出去
+		//得到相位差，Measure_Phase测得的是GPS上升沿到Local的下降沿
+		en <= ($signed(Measure_Phase) - $signed(1_000_000));
+		Data <= en;						//串口发出去，这里如果发integral_en就会有问题，不知道为什么
 		
-		un <= kp*en + ki*(integral_en + en);
+		//计算PI
+		un <= $signed(500)*en + $signed(10)*integral_en;
 		//un = kp*en + ki*(integral_en + en) + kd*(en-en_1);
 		
-		if (integral_en > $signed(100)) begin	//限制积分上限，下限数据转换emmm还没弄明白
-			integral_en <= $signed(0);
-		end
-		if (integral_en < $signed(-100)) begin
-			integral_en <= $signed(0);
+
+		//限制积分上限
+		if (($signed(en) > $signed(100))||($signed(en) < $signed(-100))) begin
+			integral_en <= integral_en;
 		end
 		else begin
-			integral_en <= integral_en + en;
+			if (integral_en > $signed(100)||(integral_en < $signed(-100))) begin
+				integral_en <= integral_en;
+			end
+			else begin
+				integral_en <= integral_en + en;
+			end
 		end
 		
-		//en_1 <= en;
+
+		
 	end
 
 end
@@ -63,7 +71,7 @@ always @(posedge CLK_SYS or negedge CLK_RST) begin
 		compensate <= 0;
 	end
 	else begin
-		PWM_Duty <= PWM_Duty_Half + un;
+		PWM_Duty <= $signed(PWM_Duty_Half) + $signed(un);
 	end
 end
 

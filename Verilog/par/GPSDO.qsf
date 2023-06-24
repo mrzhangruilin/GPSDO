@@ -48,7 +48,6 @@ set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR "-1"
 set_global_assignment -name POWER_EXT_SUPPLY_VOLTAGE_TO_REGULATOR 3.3V
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
-set_location_assignment PIN_1 -to _1PPS_GPS
 set_location_assignment PIN_72 -to _1PPS_Local
 set_location_assignment PIN_87 -to CLK_RST
 set_location_assignment PIN_12 -to CLK_SYS
@@ -63,3 +62,5 @@ set_global_assignment -name VERILOG_FILE ../rtl/CLK_DIV.v
 set_global_assignment -name BDF_FILE ../rtl/GPSDO.bdf
 set_global_assignment -name CDF_FILE output_files/Chain1.cdf
 set_location_assignment PIN_26 -to Uart_Tx
+set_global_assignment -name VERILOG_FILE ../rtl/Filter.v
+set_location_assignment PIN_1 -to GPS_IN

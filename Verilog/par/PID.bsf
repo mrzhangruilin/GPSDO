@@ -82,13 +82,13 @@ applicable agreement for further details.
 	(port
 		(pt 264 96)
 		(output)
-		(text "compensate[24..0]" (rect 0 0 74 12)(font "Arial" ))
-		(text "compensate[24..0]" (rect 169 91 243 103)(font "Arial" ))
-		(line (pt 264 96)(pt 248 96)(line_width 3))
+		(text "DIV_RST" (rect 0 0 43 12)(font "Arial" ))
+		(text "DIV_RST" (rect 200 91 243 103)(font "Arial" ))
+		(line (pt 264 96)(pt 248 96)(line_width 1))
 	)
 	(parameter
 		"kp"
-		"1000"
+		"500"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter

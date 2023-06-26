@@ -47,9 +47,9 @@ applicable agreement for further details.
 	(port
 		(pt 0 80)
 		(input)
-		(text "compensate[24..0]" (rect 0 0 74 12)(font "Arial" ))
-		(text "compensate[24..0]" (rect 21 75 95 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80)(line_width 3))
+		(text "DIV_RST" (rect 0 0 43 12)(font "Arial" ))
+		(text "DIV_RST" (rect 21 75 64 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
 	)
 	(port
 		(pt 232 32)
@@ -57,6 +57,20 @@ applicable agreement for further details.
 		(text "_1PPS_Local" (rect 0 0 54 12)(font "Arial" ))
 		(text "_1PPS_Local" (rect 157 27 211 39)(font "Arial" ))
 		(line (pt 232 32)(pt 216 32)(line_width 1))
+	)
+	(port
+		(pt 232 48)
+		(output)
+		(text "Flag_GPS_posedge" (rect 0 0 80 12)(font "Arial" ))
+		(text "Flag_GPS_posedge" (rect 131 43 211 55)(font "Arial" ))
+		(line (pt 232 48)(pt 216 48)(line_width 1))
+	)
+	(port
+		(pt 232 64)
+		(output)
+		(text "Flag_Local_negedge" (rect 0 0 82 12)(font "Arial" ))
+		(text "Flag_Local_negedge" (rect 129 59 211 71)(font "Arial" ))
+		(line (pt 232 64)(pt 216 64)(line_width 1))
 	)
 	(parameter
 		"period"

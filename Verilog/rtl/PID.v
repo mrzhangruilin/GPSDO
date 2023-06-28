@@ -39,7 +39,7 @@ always @(posedge Measure_Done or negedge CLK_RST) begin
 	else begin
 		cnt_phase <= Measure_Phase;
 		en <= cnt_phase - 24'd1_000_000;
-		Data <= integral_en;
+		Data <= en;
 
 
 		un <= kp*en + ki*integral_en;
@@ -62,7 +62,7 @@ always @(posedge Measure_Done or negedge CLK_RST) begin
 			end
 		end
 
-		if ((en < -10)||(en > 10)) begin
+		if ((en < -50)||(en > 50)) begin
 			DIV_RST <= 1'b1;
 		end
 		else begin

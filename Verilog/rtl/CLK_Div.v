@@ -3,7 +3,8 @@ module CLK_DIV (
 	input					CLK_RST,
     input   				_1PPS_GPS,
 
-	input					DIV_RST,	//分频复位
+	input					DIV_RST,		//分频复位
+	input					Preheat_done,	//预热完成标志位
     output  reg				_1PPS_Local,
 	output					Flag_GPS_posedge,
 	output					Flag_Local_negedge
@@ -51,7 +52,7 @@ always @(posedge CLK_SYS or negedge CLK_RST) begin
     if (!CLK_RST) begin
         flag_start <= 1'b0;
     end
-    else if (Flag_GPS_posedge) begin		//GPS上升沿到来给计时信号
+    else if ((Flag_GPS_posedge)&&(Preheat_done)) begin		//GPS上升沿到来给计时信号
 		flag_start <= 1'b1;
 	end
 	else if (flag_DIV_RST_posedge) begin	//复位信号来停止计时

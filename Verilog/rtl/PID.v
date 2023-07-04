@@ -14,13 +14,13 @@ module PID (
 
 
 parameter signed 	kp = 500;
-parameter signed 	ki = 10;
+parameter signed 	ki = 1;
 parameter signed 	kd = 0;
-parameter signed	PWM_Duty_Half = 32768;
+parameter signed	PWM_Duty_Half = 30000;
 
 reg signed	[24:0]	en;				//偏差量，偏差量=Phase-Target
 reg signed	[24:0]	en_1;			//En-1，上一次偏差量
-reg signed	[7:0]	integral_en;	//偏差量积分
+reg signed	[13:0]	integral_en;	//偏差量积分
 reg signed	[24:0]	un;				//△u
 
 assign Uart_En = Measure_Done;
@@ -39,7 +39,7 @@ always @(posedge Measure_Done or negedge CLK_RST) begin
 	else begin
 		cnt_phase <= Measure_Phase;
 		en <= cnt_phase - 24'd1_000_000;
-		Data <= en;
+		Data <= integral_en;
 
 
 		un <= kp*en + ki*integral_en;
@@ -51,11 +51,11 @@ always @(posedge Measure_Done or negedge CLK_RST) begin
 			integral_en <= integral_en;
 		end
 		else begin
-			if (integral_en > 100) begin
-				integral_en <= 100;
+			if (integral_en > 1000) begin
+				integral_en <= 1000;
 			end
-			else if (integral_en < -100) begin
-				integral_en <= -100;
+			else if (integral_en < -1000) begin
+				integral_en <= -1000;
 			end
 			else begin
 				integral_en <= integral_en + en;
@@ -82,7 +82,7 @@ end
 //控制PWM_Duty
 always @(posedge CLK_SYS or negedge CLK_RST) begin
 	if (!CLK_RST) begin
-		PWM_Duty <= 32768;
+		PWM_Duty <= PWM_Duty_Half;
 	end
 	else begin
 		PWM_Duty <= PWM_Duty_Half + un;

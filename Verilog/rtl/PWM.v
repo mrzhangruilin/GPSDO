@@ -6,6 +6,7 @@ module PWM (
 	output	reg				PWM_Out
 );
 
+
 parameter pulse = 65535;	//脉冲周期
 reg [15:0]	cnt_pulse;		//脉冲周期计数
 
